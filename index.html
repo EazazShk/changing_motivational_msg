@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title> Cw Counter </title>
+		<link rel ="stylesheet" href ="c1.css">
+	</head>
+	<body>
+	<center>
+		<h1>Motivational Message Wallah </h1>
+		<h1 id = "msg"></h1>
+	</center>
+	<script>
+	function gm()
+	{
+		let msg = document.getElementById("msg")
+		let urladd = "https://api.quotable.io/random";
+		fetch(urladd)
+		.then(res => res.json())
+		.then (data => msg.innerHTML=data.author + " ==> " + data.content)
+		.catch(err => msg.innerHTML= err);
+	}
+	gm();
+	setInterval(gm, 10000);
+	</script>
+	</body>
+</html>	
